@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-import static HW4.restfulServicePractice.model.Member.memberlist;
+import static HW4.restfulServicePractice.controller.MemberController.memberlist;
 
 @Service
 public class MemberService {
