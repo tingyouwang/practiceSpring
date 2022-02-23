@@ -12,10 +12,24 @@ public class Member {
     @Id @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     String id;
+
     @Column(name="name")
     String name;
+
     @Column(name="gender")
     String gender;
+
+    @Column(name="SUBJECT")
+    String subject;
+
+    @Column(name="JOB_TITLE")
+    String job_title;
+
+//    @Column(name="ADMISSION_YEAR_MONTH")
+//    String admission_year_month;
+//
+//    @Column(name="class")
+//    String myclass;
 
     public String getId() {
         return id;
@@ -41,4 +55,35 @@ public class Member {
         this.gender = gender;
     }
 
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getJob_title() {
+        return job_title;
+    }
+
+    public void setJob_title(String job_title) {
+        this.job_title = job_title;
+    }
+
+//    public String getAdmission_year_month() {
+//        return admission_year_month;
+//    }
+//
+//    public void setAdmission_year_month(String admission_year_month) {
+//        this.admission_year_month = admission_year_month;
+//    }
+//
+//    public String getMyclass() {
+//        return myclass;
+//    }
+//
+//    public void setMyclass(String myclass) {
+//        this.myclass = myclass;
+//    }
 }

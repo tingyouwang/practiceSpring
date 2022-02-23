@@ -23,12 +23,12 @@ public class MemberController {
     @Autowired
     MemberService mService;
 
-//    @GetMapping(value = "/rest/all-member")
-//    public String getallMember() throws JsonProcessingException {
-//
-//        return mService.getAllMember();
-//
-//    }
+    @GetMapping(value = "/rest/all-member")
+    public String getallMember() throws JsonProcessingException {
+
+        return mService.getAllMember();
+
+    }
 
     @GetMapping(value = "/rest/all-teacher")
     public String allTeacher() throws JsonProcessingException {
