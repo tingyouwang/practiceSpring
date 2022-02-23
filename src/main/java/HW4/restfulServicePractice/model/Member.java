@@ -1,11 +1,20 @@
 package HW4.restfulServicePractice.model;
 
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
+@Table(name="MEMBER")
+@Component
 public class Member {
+    @Id @Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     String id;
+    @Column(name="name")
     String name;
+    @Column(name="gender")
     String gender;
 
     public String getId() {

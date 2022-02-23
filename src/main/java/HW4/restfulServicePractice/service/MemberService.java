@@ -1,9 +1,12 @@
 package HW4.restfulServicePractice.service;
 
+import HW4.restfulServicePractice.repository.MemberListRepo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import HW4.restfulServicePractice.model.Member;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +14,12 @@ import java.util.List;
 import static HW4.restfulServicePractice.controller.MemberController.memberlist;
 
 @Service
+@Transactional
 public class MemberService {
+
+    @Autowired
+    private MemberListRepo mListRepo;
+
     List<Member> memberList = memberlist();
 
     public String allTeacher() throws JsonProcessingException {
@@ -60,5 +68,16 @@ public class MemberService {
         return studentJson;
 
     }
+    public String getAllMember() throws JsonProcessingException {
+
+        List<Member> memberList = mListRepo.getAllMember();
+
+        ObjectMapper objmapper = new ObjectMapper();
+        String memberJson = objmapper.writeValueAsString(memberList);
+
+        return memberJson;
+
+    }
+
 
 }
