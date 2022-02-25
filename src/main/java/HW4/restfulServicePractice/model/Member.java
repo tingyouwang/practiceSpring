@@ -1,5 +1,6 @@
 package HW4.restfulServicePractice.model;
 
+import org.hibernate.annotations.DiscriminatorOptions;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -7,23 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table(name="MEMBER")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="JOB")
+//@DiscriminatorValue("teacher")
+@DiscriminatorOptions(force = true)
 @Component
 public class Member {
     @Id @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     String id;
 
-    @Column(name="name")
+    @Column(name="MYNAME")
     String name;
 
-    @Column(name="gender")
+    @Column(name="GENDER")
     String gender;
 
-    @Column(name="SUBJECT")
-    String subject;
 
-    @Column(name="JOB_TITLE")
-    String job_title;
 
 //    @Column(name="ADMISSION_YEAR_MONTH")
 //    String admission_year_month;
@@ -55,21 +56,7 @@ public class Member {
         this.gender = gender;
     }
 
-    public String getSubject() {
-        return subject;
-    }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public String getJob_title() {
-        return job_title;
-    }
-
-    public void setJob_title(String job_title) {
-        this.job_title = job_title;
-    }
 
 //    public String getAdmission_year_month() {
 //        return admission_year_month;

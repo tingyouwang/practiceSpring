@@ -1,7 +1,17 @@
 package HW4.restfulServicePractice.model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("teacher")
 public class Teacher extends Member {
+
+    @Column(name="SUBJECT")
     String subject;
+
+    @Column(name="JOB_TITLE")
     String jobTitle;
 
     public String getSubject() {
