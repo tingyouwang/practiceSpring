@@ -24,13 +24,8 @@ public class Member {
     @Column(name="GENDER")
     String gender;
 
-
-
-//    @Column(name="ADMISSION_YEAR_MONTH")
-//    String admission_year_month;
-//
-//    @Column(name="class")
-//    String myclass;
+    @Column(name = "JOB", insertable = false,updatable = false)
+    String job;
 
     public String getId() {
         return id;
@@ -56,9 +51,14 @@ public class Member {
         this.gender = gender;
     }
 
+    public String getJob() {
+        return job;
+    }
 
-
-//    public String getAdmission_year_month() {
+    public void setJob(String job) {
+        this.job = job;
+    }
+    //    public String getAdmission_year_month() {
 //        return admission_year_month;
 //    }
 //

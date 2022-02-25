@@ -10,9 +10,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface MemberListRepo extends JpaRepository<Member,Integer> {
-    @Query(value = " select m from Member m")
-//    @Query(value = " from Member", nativeQuery = false)
-    public List<Member> getAllMember();
+//    @Query(value = " select m from Member m")
+////    @Query(value = " from Member", nativeQuery = false)
+//    public List<Member> getAllMember();
 
     @Query(value = " select s from Student s")
     public List<Student> getAllStudent();
