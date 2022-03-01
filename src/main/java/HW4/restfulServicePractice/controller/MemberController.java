@@ -55,5 +55,5 @@ public class MemberController {
         return mService.getTeacherById(id);
 
     }
-    
+
 }
