@@ -35,7 +35,7 @@ class MemberServiceTest {
     @Test
     @DisplayName("測設getAllMember")
     void getAllMember() throws JsonProcessingException {
-        String expected = "[{\"id\":\"1\",\"name\":\"Billy\",\"gender\":\"male\",\"subject\":\"Math\",\"jobTitle\":\"leader\"},{\"id\":\"2\",\"name\":\"Eric\",\"gender\":\"male\",\"subject\":\"english\",\"jobTitle\":\"teacher\"},{\"id\":\"3\",\"name\":\"Jack\",\"gender\":\"male\",\"myclass\":\"301\",\"admissionYearMonth\":\"201910\"},{\"id\":\"4\",\"name\":\"Ben\",\"gender\":\"male\",\"myclass\":\"801\",\"admissionYearMonth\":\"201909\"}]";
+//        String expected = "[{\"id\":\"1\",\"name\":\"Billy\",\"gender\":\"male\",\"subject\":\"Math\",\"jobTitle\":\"leader\"},{\"id\":\"2\",\"name\":\"Eric\",\"gender\":\"male\",\"subject\":\"english\",\"jobTitle\":\"teacher\"},{\"id\":\"3\",\"name\":\"Jack\",\"gender\":\"male\",\"myclass\":\"301\",\"admissionYearMonth\":\"201910\"},{\"id\":\"4\",\"name\":\"Ben\",\"gender\":\"male\",\"myclass\":\"801\",\"admissionYearMonth\":\"201909\"}]";
 //        String expected = "aaa";
         List<Member> memberList = memberService.getAllMember();
         System.out.println(memberList.get(0).getName());
@@ -68,18 +68,27 @@ class MemberServiceTest {
         String expected = "[{\"id\":\"3\",\"name\":\"Jack\",\"gender\":\"male\",\"myclass\":\"301\",\"admissionYearMonth\":\"201910\"}]";
 //        String result = memberService.getStudentById("3");
 //        assertEquals(expected,result);
+        try{
+            System.out.println("~~"+memberService.getStudentById(3).getName());
 
-        System.out.println("!!!"+ memberService.getStudentById("3").getName());
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            System.out.println("此ID非學生");
+        }
 
     }
 
 
     @Test
     void getTeacherById() throws JsonProcessingException {
-        //id = 1
-        String expected = "[{\"id\":\"1\",\"name\":\"Billy\",\"gender\":\"male\",\"subject\":\"Math\",\"jobTitle\":\"leader\"}]";
-        String result = memberService.getTeacherById("1");
 
-        assertEquals(expected,result);
+//        System.out.println("~~"+memberService.getTeacherById(3).getName());
+        try{
+            memberService.getTeacherById(3).getName();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            System.out.println("此ID非老師");
+        }
+
     }
 }

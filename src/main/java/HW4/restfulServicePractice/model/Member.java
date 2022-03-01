@@ -16,7 +16,8 @@ import java.util.List;
 public class Member {
     @Id @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    String id;
+//    String id;
+    Integer id;
 
     @Column(name="MYNAME")
     String name;
@@ -27,13 +28,21 @@ public class Member {
     @Column(name = "JOB", insertable = false,updatable = false)
     String job;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
+
+    //    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public String getName() {
         return name;
