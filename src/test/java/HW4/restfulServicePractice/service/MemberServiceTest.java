@@ -1,6 +1,8 @@
 package HW4.restfulServicePractice.service;
 
 import HW4.restfulServicePractice.model.Member;
+import HW4.restfulServicePractice.model.Student;
+import HW4.restfulServicePractice.model.Teacher;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class) //匯入spring測試框架[2]
 @SpringBootTest //提供spring依賴注入
-@Transactional //事務管理，預設回滾,如果配置了多資料來源記得指定事務管理器
+//@Transactional //事務管理，預設回滾,如果配置了多資料來源記得指定事務管理器
 class MemberServiceTest {
 
     @Autowired MemberService memberService;
@@ -94,5 +96,63 @@ class MemberServiceTest {
             System.out.println("此ID非老師");
         }
 
+    }
+
+    @Test
+    void insertNewTeacher() {
+
+        Teacher teacher = new Teacher();
+        teacher.setId(7);
+        teacher.setName("Judy");
+        teacher.setGender("female");
+        teacher.setSubject("math");
+        teacher.setJobTitle("leader");
+        teacher.setJob("teacher");
+
+        memberService.insertNewTeacher(teacher);
+
+    }
+
+    @Test
+    void insertNewStudent() {
+
+        Student student = new Student();
+        student.setId(10);
+        student.setName("helen");
+        student.setGender("female");
+        student.setMyclass("999");
+        student.setAdmissionYearMonth("202203");
+        student.setJob("student");
+
+        memberService.insertNewStudent(student);
+
+    }
+
+    @Test
+    void insertNewMem() {
+
+        Member mem = new Member();
+        mem.setId(8);
+        mem.setName("gary");
+        mem.setGender("male");
+        mem.setJob("teacher");
+
+        memberService.insertNewMem(mem);
+
+    }
+
+    @Test
+    void updateTeacherById(){
+        memberService.updateTeacherByid(7,"Judy2","girl","teacher2","CS","Master");
+    }
+
+    @Test
+    void updateStudentById() {
+        memberService.updateStudentByid(4,"Ben2","boy","student2","888","202203");
+    }
+
+    @Test
+    void deleteTeacherById() {
+        memberService.deleteTeacherByid(2);
     }
 }

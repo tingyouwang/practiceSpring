@@ -15,8 +15,7 @@ import java.util.List;
 @Component
 public class Member {
     @Id @Column(name="ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    String id;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
     @Column(name="MYNAME")
@@ -26,6 +25,7 @@ public class Member {
     String gender;
 
     @Column(name = "JOB", insertable = false,updatable = false)
+//    @Column(name = "JOB")
     String job;
 
     public Integer getId() {
